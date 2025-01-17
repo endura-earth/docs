@@ -45,7 +45,6 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
 
       - name: ⚙️ Configuring Environment Files
-        working-directory: ./src/Endura.Web
         run: |
           echo "NUXT_GITHUB_TOKEN=${{ secrets.NUXT_GITHUB_TOKEN }}" >> '.env'
 
