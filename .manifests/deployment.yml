@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endura-docs-deployment
+  labels:
+    app: endura-docs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endura-docs
+  template:
+    metadata:
+      labels:
+        app: endura-docs
+    spec:
+      containers:
+        - name: endura-docs
+          image: vorsouthafricanorth.azurecr.io/endura-docs
+          ports:
+            - containerPort: 3000

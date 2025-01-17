@@ -1,0 +1,81 @@
+name: Build and Deploy Endura Docs
+
+on: [push]
+
+env:
+  AZURE_AKS_CLUSTER: south-africa-north-cluster
+  AKS_RESOURCE_GROUP: south-africa-north
+  AZURE_CONTAINER_REGISTRY: vorsouthafricanorth
+  ACR_RESOURCE_URI: vorsouthafricanorth.azurecr.io
+  KUBERNETES_NAMESPACE: endura
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: Docs
+      url: https://docs.endura.aryzac.io
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      # Checks out the repository this file is in
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Logs in with your Azure credentials
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: 🔐 Login to ACR
+        uses: Azure/docker-login@v1
+        with:
+          login-server: ${{ env.ACR_RESOURCE_URI }}
+          username: ${{ secrets.ACR_USER }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: 🔐 Log into registry ${{ env.ACR_RESOURCE_URI }}
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.ACR_RESOURCE_URI }}
+          username: ${{ secrets.ACR_USER }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: ⚙️ Configuring Environment Files
+        working-directory: ./src/Endura.Web
+        run: |
+          echo "NUXT_GITHUB_TOKEN=${{ secrets.NUXT_GITHUB_TOKEN }}" >> '.env'
+
+      - name: 📦 Build the Docs image
+        run: |
+          docker build . -t ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/endura-docs:${{ github.sha }}
+          docker push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/endura-docs:${{ github.sha }}
+
+      - name: 📃 Set AKS context
+        uses: azure/aks-set-context@v1
+        with:
+          creds: "${{ secrets.AZURE_CREDENTIALS }}"
+          resource-group: ${{ env.AKS_RESOURCE_GROUP }}
+          cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
+        id: login
+
+      - name: ☸ Setting Kubernetes namespaces
+        if: always()
+        run: |
+          kubectl config set-context --current --namespace=${{ env.KUBERNETES_NAMESPACE }}
+
+      - name: ☸ Deploys Endura.Docs
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+            ./.manifests/deployment.yml
+            ./.manifests/ingress.yml
+            ./.manifests/service.yml
+          namespace: ${{ env.KUBERNETES_NAMESPACE }}
+          images: |
+            ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/endura-docs:${{ github.sha }}
+          imagepullsecrets: |
+            Endura-Docs
