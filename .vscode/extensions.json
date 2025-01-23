@@ -1,8 +1,5 @@
 {
     "recommendations": [
-        "bierner.github-markdown-preview",
-        "telesoho.vscode-markdown-paste-image",
-        "darkriszty.markdown-table-prettify",
-        "docsmsft.docs-authoring-pack",
+        "nuxt.mdc"
     ]
 }

@@ -1,16 +1,8 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // https://github.com/nuxt-themes/docus
-  extends: ["@nuxt-themes/docus"],
   devtools: { enabled: true },
-
-  runtimeConfig: {
-    // The private keys which are only available server-side
-    githubToken: "NUXT_GITHUB_TOKEN",
-    // Keys within public are also exposed client-side
-    public: {},
-  },
-
-  modules: ["@nuxthq/studio", "@nuxtjs/tailwindcss", "shadcn-nuxt"],
+  extends: ['shadcn-docs-nuxt'],
+  compatibilityDate: '2024-07-06',
 
   app: {
     head: {
@@ -21,17 +13,5 @@ export default defineNuxtConfig({
 
       link: [{ rel: "icon", type: "images/svg", href: "/favicon.svg" }],
     },
-  },
-
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: "",
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: "./components/ui",
   },
 });
