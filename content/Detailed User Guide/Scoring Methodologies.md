@@ -1,4 +1,4 @@
-# Scoring Methodologies page
+# Scoring Methodologies
 
 Risk Methodology
 

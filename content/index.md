@@ -7,13 +7,11 @@ navigation: false
 ---
 actions:
   - name: Get Started
-    to: /getting-started/introduction
+    to: /introduction/overview
 ---
-
 #title
 Sustainability with Endura
 
 #description
 Endura is your digital exchange for private company Environmental, Social, and Governance (ESG) data in Africa.
 ::
-
