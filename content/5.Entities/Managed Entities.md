@@ -1,4 +1,4 @@
-# **Entities page**
+# **Managed Entities page**
 
 The Entities page in Endura provides an interface for managing and viewing entities within the platform. It allows users to search, filter, and interact with their related entities based on their roles, industry, and type. This page is divided into two main sections: **Managed entities** and **Entity portfolio**.
 
@@ -24,7 +24,3 @@ github-issue
 - **Platform Users:** Number of users associated with the entity.
 - **Status:** The current status of the entity, such as access or pending access.
 - **Role:** Their specific role or access level.
-
-### **Entity Portfolio**
-
-This tab is not currently available but will show you your portfolio of entities.
