@@ -7,7 +7,7 @@ navigation: false
 ---
 actions:
   - name: Get Started
-    to: /introduction/overview
+    to: /overview/introduction
 ---
 #title
 Sustainability with Endura
