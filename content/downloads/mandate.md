@@ -1,3 +1,8 @@
+---
+title: Mandate templates
+description: The following files are required to complete the mandate
+---
+
 ::steps{level="5"}
 ##### File 1
 
