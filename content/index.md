@@ -13,5 +13,5 @@ actions:
 Sustainability with Endura
 
 #description
-Endura is your digital exchange for private company Environmental, Social, and Governance (ESG) data in Africa
+Endura is your digital exchange for private company Environmental, Social, and Governance (ESG) data in Africa.
 ::
