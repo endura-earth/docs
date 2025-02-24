@@ -1,7 +1,6 @@
 ---
 title: Mandate templates
 description: The following files are required to complete the mandate
-navigation: false
 ---
 
 ::steps{level="5"}
