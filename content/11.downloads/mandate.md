@@ -7,7 +7,7 @@ navigation: false
 ::steps{level="5"}
 ##### File 1
 
-  ::::card
+  :::card
   ---
   icon: lucide:box
   target: _blank
@@ -15,11 +15,11 @@ navigation: false
   to: https://nuxt.com/docs/api/components/client-only
   ---
   Explore Nuxt built-in components for pages, layouts, head, and more.
-  ::::
+  :::
 
 ##### File 2
 
-  ::::card
+  :::card
   ---
   icon: lucide:box
   target: _blank
@@ -27,11 +27,11 @@ navigation: false
   to: https://nuxt.com/docs/api/components/client-only
   ---
   Explore Nuxt built-in components for pages, layouts, head, and more.
-  ::::
+  :::
 
 ##### File 3
 
-  ::::card
+  :::card
   ---
   icon: lucide:box
   target: _blank
@@ -39,5 +39,5 @@ navigation: false
   to: https://nuxt.com/docs/api/components/client-only
   ---
   Explore Nuxt built-in components for pages, layouts, head, and more.
-  ::::
+  :::
 ::
