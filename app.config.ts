@@ -16,7 +16,7 @@ export default defineAppConfig({
       darkModeToggle: true,
       logo: {
         light: "/endura_lh_logo.svg",
-        dark: "/endura_lh_logo.svg",
+        dark: "/endura_lh_logo_dark.svg",
       },
       nav: [],
       links: [
@@ -66,4 +66,3 @@ export default defineAppConfig({
     },
   },
 });
-
