@@ -16,7 +16,7 @@
         class="flex items-center p-3 text-sm font-semibold bg-muted rounded-md"
         :to="value"
       >
-        Back to Endura App Platform
+        Back to Endura App
         <Icon name="lucide:arrow-right" class="ml-2 size-4" />
       </NuxtLink>
       <LayoutMobileNav />
@@ -59,5 +59,5 @@
 
 <script setup lang="ts">
 const config = useConfig();
-const {value} = useAppContextStore();
+const { value } = useAppContextStore();
 </script>
