@@ -11,6 +11,14 @@
       }"
     >
       <LayoutHeaderLogo class="hidden flex-1 md:flex" />
+      <NuxtLink
+        v-if="value"
+        class="flex items-center p-3 text-sm font-semibold bg-muted rounded-md"
+        :to="value"
+      >
+        Back to Endura App Platform
+        <Icon name="lucide:arrow-right" class="ml-2 size-4" />
+      </NuxtLink>
       <LayoutMobileNav />
       <LayoutHeaderLogo
         v-if="config.header.showTitleInMobile"
@@ -51,4 +59,5 @@
 
 <script setup lang="ts">
 const config = useConfig();
+const {value} = useAppContextStore();
 </script>
