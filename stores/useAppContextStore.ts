@@ -19,7 +19,6 @@ export const useAppContextStore = defineStore("useAppContextStore", {
 
         // Only allow http or https
         const isSafeProtocol = ["http:", "https:"].includes(parsed.protocol);
-        console.log({isSafeProtocol})
 
         return isSafeProtocol;
       } catch {
