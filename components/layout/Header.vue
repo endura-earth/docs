@@ -13,10 +13,10 @@
       <LayoutHeaderLogo class="hidden flex-1 md:flex" />
       <NuxtLink
         v-if="value"
-        class="flex items-center p-3 text-sm font-semibold bg-muted rounded-md"
+        class="flex items-center transition-colors px-2 py-1.5 text-muted-foreground text-sm font-normal border border-input rounded-md hover:font-semibold hover:bg-muted hover:text-accent-foreground"
         :to="value"
       >
-        Back to Endura App
+        Back to Endura Platform
         <Icon name="lucide:arrow-right" class="ml-2 size-4" />
       </NuxtLink>
       <LayoutMobileNav />
