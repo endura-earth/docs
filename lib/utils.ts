@@ -5,7 +5,8 @@ export async function generateEnduraAppLink(
   salt: string,
   iv: string,
 ): Promise<string> {
-  const key = "Endura984648465dfaefadf";
+  const config = useRuntimeConfig();
+  const key = config.public.enduraGuideKey as string;
   const { decrypt } = useWebCrypto();
   const decryptedUrl = await decrypt({ ciphertext, salt, iv }, key);
 
