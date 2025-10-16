@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   extends: ["shadcn-docs-nuxt"],
   compatibilityDate: "2024-07-06",
 
+  runtimeConfig: {
+    public: {
+      enduraGuideKey: process.env.ENDURA_GUIDE_KEY || "",
+    },
+  },
+
   app: {
     head: {
       title: "Endura Docs",
@@ -17,4 +23,3 @@ export default defineNuxtConfig({
 
   modules: ["@pinia/nuxt"],
 });
-

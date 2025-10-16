@@ -8,6 +8,7 @@ env:
   AZURE_CONTAINER_REGISTRY: vorsouthafricanorth
   ACR_RESOURCE_URI: vorsouthafricanorth.azurecr.io
   KUBERNETES_NAMESPACE: endura
+  NUXT_ENDURA_GUIDE_KEY: ${{ secrets.NUXT_ENDURA_GUIDE_KEY }}
 
 jobs:
   build:
